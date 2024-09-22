@@ -3,27 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Background Color Change</title>
+  <title>Ball Color Change</title>
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .ball {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       transition: background-color 0.5s ease;
     }
   </style>
 </head>
 <body>
 
-  <script>
-    const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#FF8F33", "#8F33FF"];
+  <div class="ball" id="ball"></div>
 
-    document.body.addEventListener("click", function() {
-      // Change the background color randomly on click
+  <script>
+    const ball = document.getElementById("ball");
+    const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+
+    ball.addEventListener("click", function() {
+      // Change the ball's color randomly on click
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      document.body.style.backgroundColor = randomColor;
+      ball.style.backgroundColor = randomColor;
     });
   </script>
 
